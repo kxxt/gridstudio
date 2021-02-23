@@ -15,7 +15,7 @@ import (
 
 var addr = flag.String("addr", ":8080", "http service address")
 var mode = flag.String("mode", "server", "program run mode")
-var rootDirectory = flag.String("root", "/home/userdata/workspace-TESTUUID/", "root directory for user files")
+var rootDirectory = flag.String("root", "/home/pi/gridstudio/userdata", "root directory for user files")
 
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile `file`")
 var memprofile = flag.String("memprofile", "", "write memory profile to `file`")
