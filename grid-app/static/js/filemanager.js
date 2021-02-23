@@ -144,7 +144,7 @@
         };
 
         this.init = function(){
-            this.base_cwd = "/home/userdata/workspace-" + this.app.slug + "/userfolder";
+            this.base_cwd = "/home/pi/gridstudio/userdata/workspace-" + this.app.slug + "/userfolder";
             this.cwd = this.base_cwd;
 
             this.dom = $('.dev-tabs .view.filemanager');

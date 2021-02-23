@@ -523,7 +523,7 @@ func main() {
 			fmt.Println(err)
 		}
 
-		dirName := "/home/userdata/workspace-" + uuidFromUrl
+		dirName := "/home/pi/gridstudio/userdata/workspace-" + uuidFromUrl
 
 		if _, err := os.Stat(dirName); !os.IsNotExist(err) {
 			removeCommand := "rm -rf " + dirName
@@ -556,7 +556,7 @@ func main() {
 
 			var dirName string
 
-			dirName = "/home/userdata/workspace-" + uuidFromUrl
+			dirName = "/home/pi/gridstudio/userdata/workspace-" + uuidFromUrl
 
 			fmt.Println(dirName)
 
@@ -566,7 +566,7 @@ func main() {
 				requestingUser := getUser(r, db)
 
 				newUuid := uuid.NewV4().String()
-				newDirName := "/home/userdata/workspace-" + newUuid
+				newDirName := "/home/pi/gridstudio/userdata/workspace-" + newUuid
 
 				// get name form DB
 				rows, err := db.Query("SELECT name, shared, owner FROM workspaces WHERE slug = ? LIMIT 1", uuidFromUrl)
@@ -640,7 +640,7 @@ func main() {
 
 		var dirName string
 
-		dirName = "/home/userdata/workspace-" + uuidString
+		dirName = "/home/pi/gridstudio/userdata/workspace-" + uuidString
 
 		user := getUser(r, db)
 
@@ -702,13 +702,13 @@ func main() {
 			}
 
 			// create WorkspaceSession
-			ws.GoCmd = exec.Command("/bin/sh", "-c", "go run *.go -addr=:"+strconv.Itoa(ws.Port)+" -root=/home/userdata/workspace-"+uuidString+"/")
-			ws.GoCmd.Dir = "/home/source/"
+			ws.GoCmd = exec.Command("/bin/sh", "-c", "go run *.go -addr=:"+strconv.Itoa(ws.Port)+" -root=/home/pi/gridstudio/userdata/workspace-"+uuidString+"/")
+			ws.GoCmd.Dir = "/home/pi/gridstudio/source/"
 			ws.GoCmd.Stdout = outfile
 			ws.GoCmd.Stderr = outfile
 
-			ws.NodeCmd = exec.Command("node", "app.js", strconv.Itoa(ws.TermPort), "/home/userdata/workspace-"+uuidString+"/")
-			ws.NodeCmd.Dir = "/home/run/terminal-server/"
+			ws.NodeCmd = exec.Command("node", "app.js", strconv.Itoa(ws.TermPort), "/home/pi/gridstudio/userdata/workspace-"+uuidString+"/")
+			ws.NodeCmd.Dir = "/home/pi/gridstudio/run/terminal-server/"
 			ws.NodeCmd.Stdout = outfile
 			ws.NodeCmd.Stderr = outfile
 

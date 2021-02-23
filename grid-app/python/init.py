@@ -17,8 +17,8 @@ import os
 import numbers
 import matplotlib.pyplot as plt
 
-if os.path.isdir("/home/user"):
-    os.chdir("/home/user")
+if os.path.isdir("/home/pi"):
+    os.chdir("/home/pi")
 
 sheet_data = {}
 
